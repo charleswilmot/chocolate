@@ -30,13 +30,6 @@ need a function that builds the model. ::
                                     padding="SAME",
                                     activation=params["conv_{}_activation_fn".format(i)])
 
-                net = layers.conv2d(net,
-                                    filters=params["conv_{}_num_outputs".format(i)],
-                                    kernel_size=params["conv_{}_kernel_size".format(i)],
-                                    strides=1,
-                                    padding="SAME",
-                                    activation=params["conv_{}_activation_fn".format(i)])
-
             with tf.variable_scope("mp_{}".format(i)):
                 net = layers.max_pooling2d(net,
                                            pool_size=params["mp_{}_kernel_size".format(i)],
